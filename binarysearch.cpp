@@ -1,52 +1,35 @@
-#include <iostream>
-using namespace std;
+# Task 1: Binary Search for family members
+def binary_search():
+    # Input names and ages
+    family = [
+        {"name": "Amjed", "age": 25},
+        {"name": "Anne", "age": 22},
+        {"name": "Esther", "age": 30},
+        {"name": "Manar", "age": 28}
+    ]
+    
+    # Binary Search requires sorted data by name
+    family.sort(key=lambda x: x['name'])
+    
+    search_name = input("Enter a key name to be searched: ")
+    
+    low = 0
+    high = len(family) - 1
+    found = False
 
-int main()
-{
-    // Sorted arrays
-    string names[5] = {"Ahmed", "Ali", "Mona", "Sara", "Zain"};
-    int ages[5] = {20, 30, 25, 18, 40};
+    while low <= high:
+        mid = (low + high) // 2
+        if family[mid]['name'].lower() == search_name.lower():
+            print(f"{family[mid]['name']} was found and is aged {family[mid]['age']}")
+            found = True
+            break
+        elif family[mid]['name'].lower() < search_name.lower():
+            low = mid + 1
+        else:
+            high = mid - 1
 
-    string key;
+    if not found:
+        print("Not found")
 
-    int low = 0;
-    int high = 4;
-    int mid;
-
-    bool found = false;
-
-    cout << "Enter name to search: ";
-    cin >> key;
-
-    // Binary Search
-    while(low <= high)
-    {
-        mid = (low + high) / 2;
-
-        if(names[mid] == key)
-        {
-            cout << key << " was found and is aged "
-                 << ages[mid] << endl;
-
-            found = true;
-            break;
-        }
-
-        else if(key < names[mid])
-        {
-            high = mid - 1;
-        }
-
-        else
-        {
-            low = mid + 1;
-        }
-    }
-
-    if(found == false)
-    {
-        cout << "Not Found";
-    }
-
-    return 0;
-}
+if __name__ == "__main__":
+    binary_search()
