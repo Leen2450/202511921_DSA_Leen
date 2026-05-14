@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     // Array of names from the assignment
-    string names[] = {"Zuck", "Shayd", "Emely", "Amjed", "Esther", "Manar", "Anne"};
+    string names[] = {"Zuck", "Shayd", "Emely", "Amjed", "leen", "Manar", "Anne"};
     int n = sizeof(names) / sizeof(names[0]);
 
     // Bubble Sort Algorithm
